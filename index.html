@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Monitoring Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏠 Room Monitoring System</h1>
+        
+        <div class="connection-status" id="connectionStatus">
+            <span class="loading"></span> Connecting to MQTT...
+        <div style="background: #f0f0f0; padding: 10px; margin-top: 20px; border-radius: 5px; font-family: monospace; font-size: 12px;">
+        <strong>Debug Info:</strong>
+        <div id="debugInfo">Waiting for connection...</div>
+    </div>
+    </div>
+        
+        <div style="text-align: center; margin-bottom: 20px;">
+            <button onclick="testConnection()" style="padding: 10px 20px; background: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">Test Connection</button>
+            <button onclick="reconnect()" style="padding: 10px 20px; background: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">Reconnect</button>
+        </div>
+
+        <div class="status-card">
+            <div class="status-header">
+                <div class="status-indicator" id="statusIndicator"></div>
+                <span>Status Ruangan</span>
+            </div>
+            <div class="status-text" id="roomStatus">Memuat...</div>
+            <div class="timestamp" id="lastUpdate">-</div>
+        </div>
+
+        <div class="motion-status">
+            <div class="motion-indicator">
+                <div class="motion-icon" id="motionIcon">👤</div>
+                <span id="motionText">Menunggu data sensor...</span>
+            </div>
+        </div>
+
+        <div class="notifications">
+            <h3 style="margin-bottom: 15px; color: #2c3e50;">📋 Riwayat Notifikasi</h3>
+            <div id="notificationList"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
